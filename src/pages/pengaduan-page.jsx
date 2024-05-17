@@ -1,4 +1,13 @@
+import { AdministrasiSVG } from "@/assets/svg/administrasi-svg";
+import { InfrastrukturSVG } from "@/assets/svg/infrastuktur-svg";
+import { KesehatanSVG } from "@/assets/svg/kesehatan-svg";
+import { KorupsiSVG } from "@/assets/svg/korupsi-svg";
+import { KriminalSVG } from "@/assets/svg/kriminal-svg";
+import { LainnyaSVG } from "@/assets/svg/lainnya-svg";
+import { PendidikanSVG } from "@/assets/svg/pendidikan-svg";
+import { PertanianSVG } from "@/assets/svg/pertanian-svg";
 import AppLayout from "@/layouts/app-layout";
+import { cn } from "@/lib/tailwind-utils";
 
 import { useEffect, useRef, useState } from "react";
 
@@ -59,7 +68,7 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
 
   return (
     <>
-      <div className="stepper flex-shrink-0">
+      <div className="stepper flex-shrink-0  w-full">
         {stepsConfig.map((step, index) => {
           return (
             <div
@@ -87,40 +96,71 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
         </div>
       </div>
 
-      <ActiveComponent />
+      {/* <ActiveComponent /> */}
 
-      {!isComplete && (
+      {/* {!isComplete && (
         <button className="btn" onClick={handleNext}>
           {currentStep === stepsConfig.length ? "Finish" : "Next"}
         </button>
-      )}
+      )} */}
     </>
+  );
+};
+
+const Tests = ({ className }) => {
+  return (
+    <svg viewBox="0 0 111 110" xmlns="http://www.w3.org/2000/svg" className={cn(className)}>
+      <path d="M18.565 44L55.25 66L110.25 33L55.25 0L0.25 33H55.25V44H18.565ZM0.25 44V88L11.25 75.79V50.6L0.25 44ZM55.25 110L27.75 93.5L16.75 86.9V53.9L55.25 77L93.75 53.9V86.9L55.25 110Z" />
+    </svg>
   );
 };
 
 const PengaduanPage = () => {
   return (
     <AppLayout>
-      <div className="max-w-[1200px] mx-auto pt-[60px]">
-        <h1 className="text-xl font-bold">Pengaduan</h1>
+      <div className="max-w-[1200px] mx-auto py-[60px]">
+        <h1 className="text-3xl font-bold">Pengaduan</h1>
 
-        <CheckoutStepper stepsConfig={CHECKOUT_STEPS} />
-        {/* <div className="h-[120px] w-full mt-[20px] rounded-[10px] shadow-xl shadow-[rgba(0,_0,_0,_0.25)] gap-5 flex border items-center justify-between px-[60px]">
-          <div className="flex flex-col flex-shrink-0 justify-center items-center">
-            <div className="w-7 h-7 rounded-full bg-slate-700"></div>
-            <p>Pilih Kategori</p>
+        <div className=" mt-[23px] rounded-[20px] shadow-high py-[26px] px-[64px] h-[100px] flex items-center  ">
+          <CheckoutStepper stepsConfig={CHECKOUT_STEPS} />
+        </div>
+        <div className="pt-[32px]">
+          <h1 className="pb-[32px]">Pilih kategori pengaduan Anda.</h1>
+          <div className="grid grid-cols-4 gap-4">
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <KesehatanSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Kesehatan</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <PendidikanSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Pendidikan</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <AdministrasiSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Administrasi</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <PertanianSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Pertanian</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <InfrastrukturSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Infrastruktur</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <KorupsiSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Korupsi</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <KriminalSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Kriminal</p>
+            </div>
+            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
+              <LainnyaSVG className={"w-[130px] h-[130px]"} />
+              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Lainnya</p>
+            </div>
           </div>
-          <div className="w-full h-[1px] bg-black"></div>
-          <div className="flex flex-col flex-shrink-0 justify-center items-center">
-            <div className="w-7 h-7 rounded-full bg-slate-700"></div>
-            <p>Tulis Pengaduan</p>
-          </div>
-          <div className="w-full h-[1px] bg-black"></div>
-          <div className="flex flex-col flex-shrink-0 justify-center items-center">
-            <div className="w-7 h-7 rounded-full bg-slate-700"></div>
-            <p>Pratinjau</p>
-          </div>
-        </div> */}
+        </div>
       </div>
     </AppLayout>
   );

@@ -6,6 +6,8 @@ import HomePage from "@/pages/home-page";
 import NewsPage from "@/pages/news-page";
 import PengaduanPage from "@/pages/pengaduan-page";
 import CustomerServicePage from "@/pages/customer-service-page";
+import KebijkanPrivasiPage from "@/pages/kebijakan-privasi-page";
+import ProfilePage from "@/pages/profile-page";
 
 const AppRoute = () => {
   return (
@@ -17,6 +19,8 @@ const AppRoute = () => {
       <Route path="/pengaduan" element={<PengaduanPage />} />
       <Route path="/berita" element={<NewsPage />} />
       <Route path="/customer-service" element={<CustomerServicePage />} />
+      <Route path="/kebijakan-privasi" element={<KebijkanPrivasiPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 };

@@ -3,7 +3,7 @@ import { Input } from "../ui/input";
 
 const Footer = () => {
   return (
-    <div className="bg-color-2 w-full">
+    <div className="bg-color-2 w-full z-30 ">
       <div className="max-w-[1200px] py-[50px]     mx-auto">
         <div className="grid grid-cols-5 text-white">
           <div className="text-white flex  flex-col justify-center items-center w-max">
@@ -45,7 +45,7 @@ const Footer = () => {
             <h1>Hubungi Kami</h1>
           </div>
           <div className="">
-            <h1>Kebijakan Privasi</h1>
+            <Link to={"/kebijakan-privasi"}>Kebijakan Privasi</Link>
           </div>
           <div className="col-start-2 mt-[30px] col-span-3  flex justify-center">
             <h1>© 2024 Jenderal Soedirman. All Rights Reserved</h1>

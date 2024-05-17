@@ -15,6 +15,7 @@ import {
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Footer from "@/components/common/footer";
+import { cn } from "@/lib/tailwind-utils";
 
 const Navbar = () => {
   return (
@@ -88,8 +89,10 @@ const Navbar = () => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>Akun Saya</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Pengaturan</DropdownMenuItem>
-              <DropdownMenuItem>Dukungan</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link to={"/profile"}>Profile Saya</Link>
+              </DropdownMenuItem>
+
               <DropdownMenuSeparator />
               <DropdownMenuItem>Keluar</DropdownMenuItem>
             </DropdownMenuContent>
@@ -100,11 +103,11 @@ const Navbar = () => {
   );
 };
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, className }) => {
   return (
     <main>
       <Navbar />
-      <div className="pt-[64px] overflow-x-hidden pb-10">{children}</div>
+      <div className={cn("pt-[64px] overflow-x-hidden pb-10", className)}>{children}</div>
       <Footer />
     </main>
   );
