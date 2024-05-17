@@ -31,13 +31,7 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                    Terima kasih telah menghubungi layanan pelanggan kami. Pengaduan Anda sangat penting bagi kami. 
-                    Tim kami akan meninjau masalah ini dengan cepat dan memberikan solusi terbaik. Mohon maaf atas ketidaknyamanan ini. 
-                    Terima kasih atas kesabaran Anda. <br />
-                    <br />
-                    Hormat Kami, <br />
-                    [AI Customer Service Name] <br />
-                    [Pemerintah Bandung]
+                      Can be verified on any platform using docker
                     </span>
                   </div>
                 </div>
@@ -53,7 +47,7 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                      Hallo Kak, apa ada yang bisa Kami bantu?
+                      Can be verified on any platform using docker
                     </span>
                   </div>
                 </div>
@@ -69,7 +63,7 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                      Pengaduan Saya kapan diprosesnya kak? udah lama banget tapi belom ditindaklanjuti?
+                      Your error message says permission denied, npm global installs must be given root privileges.
                     </span>
                   </div>
                 </div>
@@ -85,22 +79,22 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                      Terima kasih telah menyampaikan keluhan Anda. Kami mohon maaf atas ketidaknyamanan yang Anda alami
+                      Command was run with root privileges. I'm sure about that.
                     </span>
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                      Saya mengerti kekecewaan Anda. Mari kita cari solusi untuk mengatasi masalah ini bersama.
+                      I've update the description so it's more obviously now
                     </span>
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                      Untuk membantu saya memahami masalah ini lebih baik, bisakah Anda ceritakan lebih detail [poin spesifik yang perlu dijelaskan]?
+                      FYI https://askubuntu.com/a/700266/510172
                     </span>
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                      Apakah Anda menerima pesan error atau kode tertentu saat mengalami masalah ini?
+                      Check the line above (it ends with a # so, I'm running it as root )<pre># npm install -g @vue/devtools</pre>
                     </span>
                   </div>
                 </div>
@@ -116,7 +110,7 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                      Saya masih kurang paham dengan langkah [langkah yang tidak dimengerti]. Bisakah dijelaskan lebih detail?
+                      Any updates on this issue? I'm getting the same error when trying to install devtools. Thanks
                     </span>
                   </div>
                 </div>
@@ -132,11 +126,7 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                      Baiklah, dengan senang hati. Saya akan jelaskan kembali langkah-langkahnya dengan lebih detail. 
-                      Pertama, [jelaskan langkah pertama dengan detail]. 
-                      Kemudian, [jelaskan langkah kedua dengan detail]. 
-                      Lanjutkan dengan [jelaskan langkah ketiga dengan detail], 
-                      dan terakhir, [jelaskan langkah terakhir dengan detail].
+                      Thanks for your message David. I thought I'm alone with this issue. Please, ? the issue to support it :)
                     </span>
                   </div>
                 </div>
@@ -151,13 +141,13 @@ const CustomerChat = ({ isState, handleState }) => {
               <div className="flex items-end justify-end">
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                   <div>
-                    <span className="px-4 py-2 rounded-lg inline-block bg-blue-600 text-white ">
-                      Baiklah, saya akan mengikuti langkah-langkah yang Anda berikan dengan seksama.
-                    </span>
+                    <span className="px-4 py-2 rounded-lg inline-block bg-blue-600 text-white ">Are you using sudo?</span>
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                      Apakah ada tips atau trik khusus untuk melakukan langkah [langkah yang dirasa sulit]
+                      Run this command sudo chown -R `whoami` /Users/{"{"}
+                      {"{"}your_user_profile{"}"}
+                      {"}"}/.npm-global/ then install the package globally without using sudo
                     </span>
                   </div>
                 </div>
@@ -173,16 +163,12 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-2 items-start">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600">
-                      Untuk langkah [langkah yang dirasa sulit], ada beberapa tips yang bisa Anda coba: <br />
-                      [Tips 1]
-                      [Tips 2]
-                      [Tips 3]
+                      It seems like you are from Mac OS world. There is no /Users/ folder on linux ?
                     </span>
                   </div>
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gray-300 text-gray-600">
-                      Jika Anda masih kesulitan dengan langkah [langkah yang dirasa sulit], jangan ragu untuk menghubungi kami kembali. 
-                      Kami akan membantu Anda menyelesaikannya.
+                      I have no issue with any other packages installed with root permission globally.
                     </span>
                   </div>
                 </div>
@@ -198,9 +184,7 @@ const CustomerChat = ({ isState, handleState }) => {
                 <div className="flex flex-col space-y-2 text-xs max-w-xs mx-2 order-1 items-end">
                   <div>
                     <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-blue-600 text-white ">
-                      Baiklah, saya akan coba ikuti langkah-langkahnya dan kabari kembali jika masalahnya sudah teratasi. 
-                      Jika saya masih mengalami kendala, saya akan menghubungi Anda kembali. 
-                      Saya senang bisa berbicara dengan Anda. Sampai jumpa lagi.
+                      yes, I have a mac. I never had issues with root permission as well, but this helped me to solve the problem
                     </span>
                   </div>
                 </div>
