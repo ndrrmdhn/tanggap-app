@@ -13,7 +13,7 @@ export const UserProfile = () => {
   return (
     <div className="space-y-[24px]">
       <div className="flex items-center gap-x-[24px]">
-        <img src="/images/hana.png" className="w-[60px] h-[60px]" />
+        <img src="/images/hana.png" className="w-[60px] h-[60px]" srcSet="" alt="" />
         <div>
           <h1 className="text-lg font-medium">Hana Mardini</h1>
           <p className="text-sm">Perempuan</p>

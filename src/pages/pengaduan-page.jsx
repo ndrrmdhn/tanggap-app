@@ -6,29 +6,79 @@ import { KriminalSVG } from "@/assets/svg/kriminal-svg";
 import { LainnyaSVG } from "@/assets/svg/lainnya-svg";
 import { PendidikanSVG } from "@/assets/svg/pendidikan-svg";
 import { PertanianSVG } from "@/assets/svg/pertanian-svg";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import AppLayout from "@/layouts/app-layout";
 import { cn } from "@/lib/tailwind-utils";
-
 import { useEffect, useRef, useState } from "react";
+import { HiStar } from "react-icons/hi";
 
-const CHECKOUT_STEPS = [
+const daftarLayananAduan = [
   {
-    name: "Pilih Kategori",
-    Component: () => <div>Provide your contact details.</div>,
+    id: 1,
+    name: "Kesehatan",
+    code: "kesehatan",
+    icon: KesehatanSVG,
   },
   {
-    name: "Tulis Pengaduan",
-    Component: () => <div>Enter your shipping address.</div>,
+    id: 2,
+    name: "Pendidikan",
+    code: "pendidikan",
+    icon: PendidikanSVG,
   },
   {
-    name: "Pratinjau",
-    Component: () => <div>Complete payment for your order.</div>,
+    id: 3,
+    name: "Administrasi",
+    code: "administrasi",
+    icon: AdministrasiSVG,
+  },
+  {
+    id: 4,
+    name: "Pertanian",
+    code: "pertanian",
+    icon: PertanianSVG,
+  },
+  {
+    id: 5,
+    name: "Infrastruktur",
+    code: "infrastruktur",
+    icon: InfrastrukturSVG,
+  },
+  {
+    id: 6,
+    name: "Korupsi",
+    code: "korupsi",
+    icon: KorupsiSVG,
+  },
+  {
+    id: 7,
+    name: "Kriminal",
+    code: "kriminal",
+    icon: KriminalSVG,
+  },
+  {
+    id: 8,
+    name: "Lainnya",
+    code: "lainnya",
+    icon: LainnyaSVG,
   },
 ];
 
-const CheckoutStepper = ({ stepsConfig = [] }) => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isComplete, setIsComplete] = useState(false);
+const PENGADUAN_STEPS = [
+  {
+    name: "Pilih Kategori",
+  },
+  {
+    name: "Tulis Pengaduan",
+  },
+  {
+    name: "Pratinjau",
+  },
+];
+
+const PengaduanStepper = ({ stepsConfig = [], currentStep = 1, isComplete = false, className }) => {
   const [margins, setMargins] = useState({
     marginLeft: 0,
     marginRight: 0,
@@ -46,29 +96,13 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
     return <></>;
   }
 
-  console.log("MARGIN: ", margins);
-
-  const handleNext = () => {
-    setCurrentStep((prevStep) => {
-      if (prevStep === stepsConfig.length) {
-        setIsComplete(true);
-        return prevStep;
-      } else {
-        return prevStep + 1;
-      }
-    });
-  };
-
   const calculateProgressBarWidth = () => {
-    console.log(((currentStep - 1) / (stepsConfig.length - 1)) * 100);
     return ((currentStep - 1) / (stepsConfig.length - 1)) * 100;
   };
 
-  const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
-
   return (
     <>
-      <div className="stepper flex-shrink-0  w-full">
+      <div className={cn("stepper flex-shrink-0  w-full", className)}>
         {stepsConfig.map((step, index) => {
           return (
             <div
@@ -95,72 +129,267 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
           <div className="progress" style={{ width: `${calculateProgressBarWidth()}%` }}></div>
         </div>
       </div>
-
-      {/* <ActiveComponent /> */}
-
-      {/* {!isComplete && (
-        <button className="btn" onClick={handleNext}>
-          {currentStep === stepsConfig.length ? "Finish" : "Next"}
-        </button>
-      )} */}
     </>
   );
 };
 
-const Tests = ({ className }) => {
+const PengaduanAlert = ({ isState, handleState }) => {
   return (
-    <svg viewBox="0 0 111 110" xmlns="http://www.w3.org/2000/svg" className={cn(className)}>
-      <path d="M18.565 44L55.25 66L110.25 33L55.25 0L0.25 33H55.25V44H18.565ZM0.25 44V88L11.25 75.79V50.6L0.25 44ZM55.25 110L27.75 93.5L16.75 86.9V53.9L55.25 77L93.75 53.9V86.9L55.25 110Z" />
-    </svg>
+    <div className="fixed inset-0 bg-black pb-5 pt-[88px] lg:pr-5   bg-opacity-50 z-30 flex justify-center items-center">
+      <div className="bg-white max-w-[500px] w-full rounded-[10px] pb-[40px]  flex flex-col items-center">
+        <img src="/images/pengaduan-selesai.svg" className="h-full w-full max-w-[300px] max-h-[300px] object-cover" />
+        <div className="space-y-5">
+          <div className=" flex flex-col items-center space-y-5">
+            <h1 className="text-2xl font-semibold">Pengaduan Berhasil</h1>
+            <p className="text-center text-slate-500">
+              Selamat! Pengaduan kamu telah dikirimkan kepada <br /> pemerintah setempat.
+            </p>
+          </div>
+          <Button onClick={() => handleState(!isState)} className="w-full">
+            Selesai{" "}
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 };
 
 const PengaduanPage = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isComplete, setIsComplete] = useState(false);
+  const [isNextForm, setIsNextForm] = useState(false);
+  const [isState, setIsState] = useState(false);
+  const [choosedLayananAduan, setChoosedLayananAduan] = useState({
+    name: "",
+    code: "",
+  });
+
+  const handleStep = () => {
+    setCurrentStep((prevStep) => {
+      if (choosedLayananAduan?.name) {
+        return prevStep;
+      }
+      if (prevStep === 3) {
+        setIsComplete(true);
+        return prevStep;
+      } else {
+        return prevStep + 1;
+      }
+    });
+  };
+
+  const handleIsState = (isState) => {
+    setIsState(isState);
+    setChoosedLayananAduan({
+      name: "",
+      code: "",
+    });
+    setCurrentStep(1);
+    setIsComplete(false);
+    setIsNextForm(false);
+  };
+
+  const handleAduan = (layananAduan) => {
+    setChoosedLayananAduan({
+      name: layananAduan?.name,
+      code: layananAduan?.code,
+    });
+    handleStep();
+  };
+
   return (
     <AppLayout>
       <div className="max-w-[1200px] mx-auto py-[60px]">
-        <h1 className="text-3xl font-bold">Pengaduan</h1>
+        <h1 className="text-3xl font-bold">Pengaduan {choosedLayananAduan?.name && <span>{choosedLayananAduan?.name}</span>}</h1>
 
-        <div className=" mt-[23px] rounded-[20px] shadow-high py-[26px] px-[64px] h-[100px] flex items-center  ">
-          <CheckoutStepper stepsConfig={CHECKOUT_STEPS} />
-        </div>
-        <div className="pt-[32px]">
-          <h1 className="pb-[32px]">Pilih kategori pengaduan Anda.</h1>
-          <div className="grid grid-cols-4 gap-4">
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <KesehatanSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Kesehatan</p>
+        <div className="grid grid-cols-3 gap-x-5 min-h-screen">
+          <div
+            className={cn("mt-[23px] rounded-[20px] flex-col  col-span-3 shadow-high py-[26px]  h-[100px] flex items-center ", {
+              "col-span-1 ": choosedLayananAduan?.name,
+            })}
+          >
+            <div
+              className={cn("px-[48px] w-full", {
+                " px-[24px]": choosedLayananAduan?.name,
+              })}
+            >
+              <PengaduanStepper stepsConfig={PENGADUAN_STEPS} currentStep={currentStep} isComplete={isComplete} />
             </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <PendidikanSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Pendidikan</p>
+            <div
+              className={cn("pt-[32px] col-span-3 w-full", {
+                "col-span-1 ": choosedLayananAduan?.name,
+              })}
+            >
+              <h1 className="pb-[32px] text-text18_20 font-medium">Pilih kategori pengaduan Anda.</h1>
+              <div
+                className={cn("grid grid-cols-4 gap-4", {
+                  "grid-cols-3 h-max": choosedLayananAduan?.name,
+                })}
+              >
+                {daftarLayananAduan.map((layananAduan) => {
+                  const Icon = layananAduan.icon;
+
+                  return (
+                    <div
+                      onClick={() => handleAduan(layananAduan)}
+                      key={layananAduan.id}
+                      className={cn(
+                        "bg-color-5 cursor-pointer hover:bg-color-1 group flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]",
+                        {
+                          "h-max gap-2 rounded-[8px] py-[18px]": choosedLayananAduan?.name,
+                        },
+                        {
+                          "bg-color-1": choosedLayananAduan?.name === layananAduan.name,
+                        }
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          "w-[130px] h-[130px] group-hover:fill-white",
+                          {
+                            "w-[50px] h-[50px]": choosedLayananAduan?.name,
+                          },
+                          {
+                            "fill-white": choosedLayananAduan?.name === layananAduan.name,
+                          }
+                        )}
+                      />
+                      <p
+                        className={cn(
+                          "font-semibold text-2xl text-color-2 group-hover:text-white",
+                          {
+                            "text-sm": choosedLayananAduan?.name,
+                          },
+                          {
+                            "text-white": choosedLayananAduan?.name === layananAduan.name,
+                          }
+                        )}
+                      >
+                        {layananAduan.name}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <AdministrasiSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Administrasi</p>
-            </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <PertanianSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Pertanian</p>
-            </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <InfrastrukturSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Infrastruktur</p>
-            </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <KorupsiSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Korupsi</p>
-            </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <KriminalSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Kriminal</p>
-            </div>
-            <div className="bg-[rgba(204,_237,_250,_1)] flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]">
-              <LainnyaSVG className={"w-[130px] h-[130px]"} />
-              <p className="font-semibold text-2xl text-[rgba(0,_163,_232,_1)] ">Lainnya</p>
+          </div>
+
+          <div
+            className={cn("  hidden", {
+              "col-span-2 h-max flex flex-col gap-5 items-end pt-[26px]  ": choosedLayananAduan?.name,
+            })}
+          >
+            <Button
+              variant={"destructive"}
+              onClick={() => {
+                setCurrentStep(1);
+                setChoosedLayananAduan({
+                  name: "",
+                  code: "",
+                });
+                setIsNextForm(false);
+              }}
+            >
+              X Batal Pengaduan
+            </Button>
+            <div className="border w-full rounded-[10px] p-6 space-y-6">
+              <h1 className="text-xl font-semibold">{choosedLayananAduan?.name}</h1>
+              <form className="space-y-10  flex flex-col items-end">
+                {!isNextForm ? (
+                  <div className=" w-full space-y-10">
+                    <div className="grid gap-2">
+                      <Label className="flex text-text16_24">
+                        Judul <HiStar className="h-2 w-2 text-red-600" />
+                      </Label>
+                      <Input />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label className="flex text-text16_24">
+                        Uraian <HiStar className="h-2 w-2 text-red-600" />
+                      </Label>
+                      <Textarea />
+                    </div>
+                    <div className="grid gap-2">
+                      <div>
+                        <Label className="flex text-text16_24">
+                          Tambahan Foto <HiStar className="h-2 w-2 text-red-600" />
+                        </Label>
+                        <span className="text-sm text-slate-500 py-1">
+                          Foto membantu kami menemukan staf dan alat terbaik untuk kebutuhan kamu sesegera mungkin
+                        </span>
+                      </div>
+
+                      <Input type="file" />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label className="flex text-text16_24">
+                        Lokasi Pengaduan <HiStar className="h-2 w-2 text-red-600" />
+                      </Label>
+                      <Input />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-full space-y-5">
+                    <div className="flex items-center gap-3">
+                      <img src="/images/man.svg" className="w-[60px] h-[60px]" />
+                      <div>
+                        <h1 className="text-text16_24 font-semibold">Muhammad Aziz</h1>
+                        <p className="text-sm text-slate-500">Cibeunying Kaler</p>
+                      </div>
+                    </div>
+                    <img src="/images/foto_aduan.svg" className=" w-full  h-full max-h-[300px] " />
+                    <div>
+                      <h1 className="text-text16_24 font-semibold">Jalan Rusak</h1>
+                      <p className="text-sm text-slate-700">
+                        Setiap hari aku melewati jalan raya Cileunyi selalu macet karena adanya jalan rusak, mohon diperhatikan
+                        untuk pemerintah setempat semoga jalan cepat di perbaiki!!!
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {!isNextForm ? (
+                  <Button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setCurrentStep((prev) => prev + 1);
+                      setIsNextForm(true);
+                    }}
+                  >
+                    Lanjutkan
+                  </Button>
+                ) : (
+                  <div className="flex gap-6">
+                    <Button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentStep((prev) => prev - 1);
+                        setIsNextForm(false);
+                      }}
+                    >
+                      Ubah Pengaduan
+                    </Button>
+                    <Button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsState(true);
+                      }}
+                    >
+                      Kirim
+                    </Button>
+                  </div>
+                )}
+              </form>
             </div>
           </div>
         </div>
+        {isState && <PengaduanAlert isState={isState} handleState={handleIsState} />}
       </div>
     </AppLayout>
   );

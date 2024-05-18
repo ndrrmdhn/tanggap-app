@@ -4,6 +4,22 @@ module.exports = {
   content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}", "./app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
   prefix: "",
   theme: {
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1200px",
+      // => @media (min-width: 1280px) { ... }
+
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -19,12 +35,19 @@ module.exports = {
         text18_20: ["18px", "20px"],
         text20_30: ["20px", "30px"],
         text30_40: ["30px", "40px"],
+        text36_40: ["36px", "40px"],
+        text40_60: ["40px", "60px"],
         text50_60: ["50px", "60px"],
       },
       colors: {
         "color-1": "rgba(0, 132, 214, 1)",
         "color-2": "rgba(0, 163, 232, 1)",
         "color-3": "rgba(0, 163, 232, 0.55)",
+        "color-4": "rgba(133, 211, 255, 0.6)",
+        "color-5": "rgba(204, 237, 250, 1)",
+        "color-6": "rgba(217, 217, 217, 1)",
+        "color-7": "rgba(91,199,245,1)",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -80,6 +103,7 @@ module.exports = {
       },
       boxShadow: {
         high: "0px 0px 10px rgba(0, 0, 0, 0.15)",
+        medium: "0px 4px 12px 0px rgba(0, 0, 0, 0.5)",
         low: "0px 0px 4px rgba(0, 0, 0, 0.15)",
       },
     },
