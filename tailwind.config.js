@@ -105,6 +105,7 @@ module.exports = {
         high: "0px 0px 10px rgba(0, 0, 0, 0.15)",
         medium: "0px 4px 12px 0px rgba(0, 0, 0, 0.5)",
         low: "0px 0px 4px rgba(0, 0, 0, 0.15)",
+        secondary: "10px 10px 15px 0px #00000040",
       },
     },
   },

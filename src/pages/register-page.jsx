@@ -26,66 +26,39 @@ const LoginForm = () => {
           <div className="grid gap-5">
             <div className="flex items-center  gap-5">
               <div className="grid gap-2  w-full">
-                <Label htmlFor="firstName" className="text-[16px] leading-[24px] text-slate-500">
+                <Label htmlFor="firstName" className="text-text16_24 text-slate-500">
                   Nama Depan
                 </Label>
-                <Input
-                  id="firstName"
-                  type="text"
-                  placeholder="Masukan Nama Depan Anda"
-                  required
-                  className="border-[rgba(0,_163,_232,_1)] h-[50px] text-[16px] leading-[24px] border rounded-[10px]"
-                />
+                <Input id="firstName" type="text" placeholder="Masukan Nama Depan Anda" required />
               </div>
               <div className="grid gap-2 w-full">
-                <Label htmlFor="lastName" className="text-[16px] leading-[24px] text-slate-500">
+                <Label htmlFor="lastName" className="text-text16_24 text-slate-500">
                   Nama Belakang
                 </Label>
-                <Input
-                  id="lastName"
-                  type="text"
-                  placeholder="Masukan Nama Belakang Anda"
-                  required
-                  className="border-[rgba(0,_163,_232,_1)] h-[50px] text-[16px] leading-[24px] border rounded-[10px]"
-                />
+                <Input id="lastName" type="text" placeholder="Masukan Nama Belakang Anda" required />
               </div>
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="email" className="text-[16px] leading-[24px] text-slate-500">
+              <Label htmlFor="email" className="text-text16_24 text-slate-500">
                 Email
               </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Masukan Email Anda"
-                required
-                className="border-[rgba(0,_163,_232,_1)] h-[50px] text-[16px] leading-[24px] border rounded-[10px]"
-              />
+              <Input id="email" type="email" placeholder="Masukan Email Anda" required />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password" className="text-[16px] leading-[24px] text-slate-500">
+                <Label htmlFor="password" className="text-text16_24 text-slate-500">
                   Kata Sandi
                 </Label>
               </div>
-              <Input
-                id="password"
-                type="password"
-                placeholder="Masukan Kata Sandi"
-                required
-                className="rounded-[10px] h-[50px] text-[16px] leading-[24px] border-[rgba(0,_163,_232,_1)] border"
-              />
+              <Input id="password" type="password" placeholder="Masukan Kata Sandi" required />
             </div>
             <div className="w-full space-y-3">
               <Button type="submit" className="w-full h-[50px] text-[16px] leading-[24px] bg-[rgba(0,_132,_214,_1)] ">
                 Daftar
               </Button>
-              <span className="text-[16px] leading-[24px] block text-slate-500">
+              <span className="text-text16_24 block text-slate-500">
                 Sudah punya akun?{" "}
-                <Link
-                  to={"/login"}
-                  className="text-[rgba(0,_132,_214,_1)] hover:underline hover:underline-offset-4  font-semibold"
-                >
+                <Link to={"/login"} className="text-color-1 hover:underline hover:underline-offset-4  font-semibold">
                   Masuk
                 </Link>
               </span>
@@ -94,13 +67,14 @@ const LoginForm = () => {
                 <span className="text-[16px] leading-[24px] text-slate-500">Atau</span>
                 <Separator className="w-[270px]" />
               </div>
-              <div className=" flex justify-center">
+
+              <div className=" flex justify-center ">
                 <Link
                   to={"/google"}
-                  className=" rounded-[10px] border border-[rgba(0,_163,_232,_1)] flex w-[280px] justify-center items-center gap-4 p-3 "
+                  className=" rounded-[10px] border border-color-1 hover:bg-opacity-60 group hover:bg-[#0084D6] flex w-[280px] justify-center items-center gap-4 p-3 "
                 >
                   <FcGoogle className="w-[32px] h-[32px]" />{" "}
-                  <span className="text-[16px] leading-[24px] block text-slate-500">Masuk dengan Google</span>
+                  <span className="text-text16_24 block text-slate-500 group-hover:text-white">Masuk dengan Google</span>
                 </Link>
               </div>
               <div className="pt-1">

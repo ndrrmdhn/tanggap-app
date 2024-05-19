@@ -198,7 +198,7 @@ const PengaduanPage = () => {
   };
 
   return (
-    <AppLayout>
+    <AppLayout className={"px-4 md:px-6  z-30 max-w-screen-xl mx-auto "}>
       <div className="max-w-[1200px] mx-auto py-[60px]">
         <h1 className="text-3xl font-bold">Pengaduan {choosedLayananAduan?.name && <span>{choosedLayananAduan?.name}</span>}</h1>
 
@@ -280,6 +280,7 @@ const PengaduanPage = () => {
             })}
           >
             <Button
+              className="w-full max-w-[324px]"
               variant={"destructive"}
               onClick={() => {
                 setCurrentStep(1);
@@ -307,7 +308,7 @@ const PengaduanPage = () => {
                       <Label className="flex text-text16_24">
                         Uraian <HiStar className="h-2 w-2 text-red-600" />
                       </Label>
-                      <Textarea />
+                      <Textarea className="border-slate-400 focus-visible:ring-color-2 focus-visible:border-color-2 text-text16_24" />
                     </div>
                     <div className="grid gap-2">
                       <div>
@@ -319,7 +320,7 @@ const PengaduanPage = () => {
                         </span>
                       </div>
 
-                      <Input type="file" />
+                      <Input type="file" className="items-center justify-center flex" />
                     </div>
                     <div className="grid gap-2">
                       <Label className="flex text-text16_24">
@@ -351,6 +352,7 @@ const PengaduanPage = () => {
                 {!isNextForm ? (
                   <Button
                     type="button"
+                    className="w-full max-w-[324px]"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
@@ -361,8 +363,9 @@ const PengaduanPage = () => {
                     Lanjutkan
                   </Button>
                 ) : (
-                  <div className="flex gap-6">
+                  <div className="flex gap-6 w-full justify-end">
                     <Button
+                      className="w-full max-w-[324px]"
                       type="button"
                       onClick={(e) => {
                         e.preventDefault();
@@ -374,6 +377,7 @@ const PengaduanPage = () => {
                       Ubah Pengaduan
                     </Button>
                     <Button
+                      className="w-full max-w-[324px]"
                       type="button"
                       onClick={(e) => {
                         e.preventDefault();

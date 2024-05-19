@@ -13,6 +13,19 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/tailwind-utils";
 
+const Notification = () => {
+  return (
+    <div className="relative ">
+      <div className="flex justify-center top-2 right-1 absolute items-center text-black w-5 h-5 text-[12px]  font-medium bg-white rounded-full">
+        2
+      </div>
+      <Link to={"/notifikasi"} className=" cursor-pointer">
+        <MdNotifications className="h-12 w-12 text-yellow-500" />
+      </Link>
+    </div>
+  );
+};
+
 const Navbar = ({ className }) => {
   return (
     <div className={cn("w-screen z-40 fixed top-0  bg-color-2", className)}>
@@ -56,28 +69,23 @@ const Navbar = ({ className }) => {
                 <Package2 className="h-6 w-6" />
                 <span className="sr-only">Acme Inc</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                Dashboard
+              <Link to={"/"} className="text-muted-foreground hover:text-foreground">
+                Home
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                Orders
+              <Link to={"/pengaduan"} className="text-muted-foreground hover:text-foreground">
+                Pengaduan
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                Products
+              <Link to={"/berita"} className="text-muted-foreground hover:text-foreground">
+                Berita
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                Customers
-              </Link>
-              <Link href="#" className="hover:text-foreground">
-                Settings
+              <Link to={"/customer-service"} className="text-muted-foreground hover:text-foreground">
+                Customers Service
               </Link>
             </nav>
           </SheetContent>
         </Sheet>
         <div className="flex w-max items-center gap-4  md:gap-2 lg:gap-6">
-          <Link to={"/notifikasi"} className=" cursor-pointer">
-            <MdNotifications className="h-9 w-9 text-yellow-500" />
-          </Link>
+          <Notification />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
@@ -89,11 +97,16 @@ const Navbar = ({ className }) => {
               <DropdownMenuLabel>Akun Saya</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link to={"/profile"}>Profile Saya</Link>
+                <Link to={"/profile"} className="w-full">
+                  Profile Saya
+                </Link>
               </DropdownMenuItem>
-
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Keluar</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link to={"/login"} className="w-full">
+                  Keluar
+                </Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

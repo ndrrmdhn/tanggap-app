@@ -10,6 +10,9 @@ import KebijkanPrivasiPage from "@/pages/kebijakan-privasi-page";
 import ProfilePage from "@/pages/profile-page";
 import PengaduanSayaPage from "@/pages/pengaduan-saya-page";
 import DetailNewsPage from "@/pages/detail-news-page";
+import BantuanPage from "@/pages/bantuan-page";
+import TentangKamiPage from "@/pages/tentang-kami-page";
+import KontakKamiPage from "@/pages/contact-us";
 
 const AppRoute = () => {
   return (
@@ -25,6 +28,9 @@ const AppRoute = () => {
       <Route path='/profile' element={<ProfilePage />} />
       <Route path='/pengaduan-saya' element={<PengaduanSayaPage />} />
       <Route path='/berita/:id' element={<DetailNewsPage />} />
+      <Route path='/bantuan' element={<BantuanPage />} />
+      <Route path='/tentang' element={<TentangKamiPage />} />
+      <Route path='/kontak' element={<KontakKamiPage />} />
     </Routes>
   );
 };
