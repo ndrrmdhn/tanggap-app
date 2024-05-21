@@ -68,17 +68,22 @@ const daftarLayananAduan = [
 
 const PENGADUAN_STEPS = [
   {
-    name: "Pilih Kategori",
+    name: "Tulis Pengaduan",
   },
   {
-    name: "Tulis Pengaduan",
+    name: "Cantumkan Foto (Opsional)",
   },
   {
     name: "Pratinjau",
   },
 ];
 
-const PengaduanStepper = ({ stepsConfig = [], currentStep = 1, isComplete = false, className }) => {
+const PengaduanStepper = ({
+  stepsConfig = [],
+  currentStep = 1,
+  isComplete = false,
+  className,
+}) => {
   const [margins, setMargins] = useState({
     marginLeft: 0,
     marginRight: 0,
@@ -108,11 +113,17 @@ const PengaduanStepper = ({ stepsConfig = [], currentStep = 1, isComplete = fals
             <div
               key={step.name}
               ref={(el) => (stepRef.current[index] = el)}
-              className={`step ${currentStep > index + 1 || isComplete ? "complete" : ""} ${
-                currentStep === index + 1 ? "active" : ""
-              } `}
+              className={`step ${
+                currentStep > index + 1 || isComplete ? "complete" : ""
+              } ${currentStep === index + 1 ? "active" : ""} `}
             >
-              <div className="step-number">{currentStep > index + 1 || isComplete ? <span>&#10003;</span> : index + 1}</div>
+              <div className="step-number">
+                {currentStep > index + 1 || isComplete ? (
+                  <span>&#10003;</span>
+                ) : (
+                  index + 1
+                )}
+              </div>
               <div className="step-name">{step.name}</div>
             </div>
           );
@@ -126,7 +137,10 @@ const PengaduanStepper = ({ stepsConfig = [], currentStep = 1, isComplete = fals
             marginRight: margins.marginRight,
           }}
         >
-          <div className="progress" style={{ width: `${calculateProgressBarWidth()}%` }}></div>
+          <div
+            className="progress"
+            style={{ width: `${calculateProgressBarWidth()}%` }}
+          ></div>
         </div>
       </div>
     </>
@@ -137,12 +151,16 @@ const PengaduanAlert = ({ isState, handleState }) => {
   return (
     <div className="fixed inset-0 bg-black pb-5 pt-[88px] lg:pr-5   bg-opacity-50 z-30 flex justify-center items-center">
       <div className="bg-white max-w-[500px] w-full rounded-[10px] pb-[40px]  flex flex-col items-center">
-        <img src="/images/pengaduan-selesai.svg" className="h-full w-full max-w-[300px] max-h-[300px] object-cover" />
+        <img
+          src="/images/pengaduan-selesai.svg"
+          className="h-full w-full max-w-[300px] max-h-[300px] object-cover"
+        />
         <div className="space-y-5">
           <div className=" flex flex-col items-center space-y-5">
             <h1 className="text-2xl font-semibold">Pengaduan Berhasil</h1>
             <p className="text-center text-slate-500">
-              Selamat! Pengaduan kamu telah dikirimkan kepada <br /> pemerintah setempat.
+              Selamat! Pengaduan kamu telah dikirimkan kepada <br /> pemerintah
+              setempat.
             </p>
           </div>
           <Button onClick={() => handleState(!isState)} className="w-full">
@@ -158,6 +176,7 @@ const PengaduanPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isComplete, setIsComplete] = useState(false);
   const [isNextForm, setIsNextForm] = useState(false);
+  const [isPreview, setIsPreview] = useState(false);
   const [isState, setIsState] = useState(false);
   const [choosedLayananAduan, setChoosedLayananAduan] = useState({
     name: "",
@@ -200,200 +219,179 @@ const PengaduanPage = () => {
   return (
     <AppLayout className={"px-4 md:px-6  z-30 max-w-screen-xl mx-auto "}>
       <div className="max-w-[1200px] mx-auto py-[60px]">
-        <h1 className="text-3xl font-bold">Pengaduan {choosedLayananAduan?.name && <span>{choosedLayananAduan?.name}</span>}</h1>
+        <h1 className="text-3xl font-bold">Pengaduan</h1>
 
-        <div className="grid grid-cols-3 gap-x-5 min-h-screen">
+        <div
+          id="section-parent"
+          className="grid grid-cols-3 gap-x-5 min-h-screen"
+        >
           <div
-            className={cn("mt-[23px] rounded-[20px] flex-col  col-span-3 shadow-high py-[26px]  h-[100px] flex items-center ", {
-              "col-span-1 ": choosedLayananAduan?.name,
-            })}
+            className={cn(
+              "mt-[23px] rounded-[20px] flex-col  col-span-3 shadow-high py-[26px]  h-[100px] flex items-center ",
+              {
+                "col-span-1 ": choosedLayananAduan?.name,
+              }
+            )}
           >
             <div
               className={cn("px-[48px] w-full", {
                 " px-[24px]": choosedLayananAduan?.name,
               })}
             >
-              <PengaduanStepper stepsConfig={PENGADUAN_STEPS} currentStep={currentStep} isComplete={isComplete} />
+              <PengaduanStepper
+                stepsConfig={PENGADUAN_STEPS}
+                currentStep={currentStep}
+                isComplete={isComplete}
+              />
             </div>
+
             <div
               className={cn("pt-[32px] col-span-3 w-full", {
                 "col-span-1 ": choosedLayananAduan?.name,
               })}
             >
-              <h1 className="pb-[32px] text-text18_20 font-medium">Pilih kategori pengaduan Anda.</h1>
-              <div
-                className={cn("grid grid-cols-4 gap-4", {
-                  "grid-cols-3 h-max": choosedLayananAduan?.name,
-                })}
-              >
-                {daftarLayananAduan.map((layananAduan) => {
-                  const Icon = layananAduan.icon;
-
-                  return (
-                    <div
-                      onClick={() => handleAduan(layananAduan)}
-                      key={layananAduan.id}
-                      className={cn(
-                        "bg-color-5 cursor-pointer hover:bg-color-1 group flex justify-center items-center flex-col h-[240px] gap-4 rounded-[32px]",
-                        {
-                          "h-max gap-2 rounded-[8px] py-[18px]": choosedLayananAduan?.name,
-                        },
-                        {
-                          "bg-color-1": choosedLayananAduan?.name === layananAduan.name,
-                        }
-                      )}
-                    >
-                      <Icon
-                        className={cn(
-                          "w-[130px] h-[130px] group-hover:fill-white",
-                          {
-                            "w-[50px] h-[50px]": choosedLayananAduan?.name,
-                          },
-                          {
-                            "fill-white": choosedLayananAduan?.name === layananAduan.name,
-                          }
-                        )}
-                      />
-                      <p
-                        className={cn(
-                          "font-semibold text-2xl text-color-2 group-hover:text-white",
-                          {
-                            "text-sm": choosedLayananAduan?.name,
-                          },
-                          {
-                            "text-white": choosedLayananAduan?.name === layananAduan.name,
-                          }
-                        )}
-                      >
-                        {layananAduan.name}
-                      </p>
+              <div className="border w-full rounded-[10px] p-6 space-y-6">
+                <form className="space-y-10 flex flex-col">
+                  {currentStep === 1 ? (
+                    <div className="w-full space-y-10">
+                      <div className="grid gap-2">
+                        <Label className="flex text-text16_24">
+                          Judul <HiStar className="h-2 w-2 text-red-600" />
+                        </Label>
+                        <Input
+                          type="text"
+                          className="border-slate-400 focus-visible:ring-color-2 focus-visible:border-color-2 text-text16_24"
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label className="flex text-text16_24">
+                          Uraian <HiStar className="h-2 w-2 text-red-600" />
+                        </Label>
+                        <Textarea className="border-slate-400 focus-visible:ring-color-2 focus-visible:border-color-2 text-text16_24" />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label className="flex text-text16_24">
+                          Lokasi Pengaduan{" "}
+                          <HiStar className="h-2 w-2 text-red-600" />
+                        </Label>
+                        <Input
+                          type="text"
+                          className="border-slate-400 focus-visible:ring-color-2 focus-visible:border-color-2 text-text16_24"
+                        />
+                      </div>
                     </div>
-                  );
-                })}
+                  ) : currentStep === 2 ? (
+                    <div className="w-full space-y-10">
+                      <div className="grid gap-2">
+                        <Label className="flex text-text16_24">
+                          Tambahan Foto{" "}
+                          <HiStar className="h-2 w-2 text-red-600" />
+                        </Label>
+                        <span className="text-sm text-slate-500 py-1">
+                          Foto membantu kami menemukan staf dan alat terbaik
+                          untuk kebutuhan kamu sesegera mungkin
+                        </span>
+                        <Input
+                          type="file"
+                          className="items-center justify-center flex"
+                        />
+                      </div>
+                    </div>
+                  ) : currentStep === 3 ? (
+                    <div className="w-full space-y-5">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src="/images/man.svg"
+                          className="w-[60px] h-[60px]"
+                        />
+                        <div>
+                          <h1 className="text-text16_24 font-semibold">
+                            Muhammad Aziz
+                          </h1>
+                          <p className="text-sm text-slate-500">
+                            Cibeunying Kaler
+                          </p>
+                        </div>
+                      </div>
+                      <img
+                        src="/images/foto_aduan.svg"
+                        className="w-full h-full max-h-[300px]"
+                      />
+                      <div>
+                        <h1 className="text-text16_24 font-semibold">
+                          Jalan Rusak
+                        </h1>
+                        <p className="text-sm text-slate-700">
+                          Setiap hari aku melewati jalan raya Cileunyi selalu
+                          macet karena adanya jalan rusak, mohon diperhatikan
+                          untuk pemerintah setempat semoga jalan cepat di
+                          perbaiki!!!
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {currentStep === 1 ? (
+                    <Button
+                      type="button"
+                      className="w-full "
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentStep(2);
+                      }}
+                    >
+                      Lanjutkan
+                    </Button>
+                  ) : currentStep === 2 ? (
+                    <Button
+                      type="button"
+                      className="w-full"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentStep(3);
+                        setIsPreview(true);
+                      }}
+                    >
+                      Lanjutkan
+                    </Button>
+                  ) : (
+                    <div className="flex gap-6 w-full justify-end">
+                      <Button
+                        className="w-full max-w-[324px]"
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setCurrentStep(1);
+                          setIsPreview(false);
+                        }}
+                      >
+                        Ubah Pengaduan
+                      </Button>
+                      <Button
+                        className="w-full max-w-[324px]"
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setIsState(true);
+                        }}
+                      >
+                        Kirim
+                      </Button>
+                    </div>
+                  )}
+                </form>
               </div>
             </div>
           </div>
-
-          <div
-            className={cn("  hidden", {
-              "col-span-2 h-max flex flex-col gap-5 items-end pt-[26px]  ": choosedLayananAduan?.name,
-            })}
-          >
-            <Button
-              className="w-full max-w-[324px]"
-              variant={"destructive"}
-              onClick={() => {
-                setCurrentStep(1);
-                setChoosedLayananAduan({
-                  name: "",
-                  code: "",
-                });
-                setIsNextForm(false);
-              }}
-            >
-              X Batal Pengaduan
-            </Button>
-            <div className="border w-full rounded-[10px] p-6 space-y-6">
-              <h1 className="text-xl font-semibold">{choosedLayananAduan?.name}</h1>
-              <form className="space-y-10  flex flex-col items-end">
-                {!isNextForm ? (
-                  <div className=" w-full space-y-10">
-                    <div className="grid gap-2">
-                      <Label className="flex text-text16_24">
-                        Judul <HiStar className="h-2 w-2 text-red-600" />
-                      </Label>
-                      <Input />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label className="flex text-text16_24">
-                        Uraian <HiStar className="h-2 w-2 text-red-600" />
-                      </Label>
-                      <Textarea className="border-slate-400 focus-visible:ring-color-2 focus-visible:border-color-2 text-text16_24" />
-                    </div>
-                    <div className="grid gap-2">
-                      <div>
-                        <Label className="flex text-text16_24">
-                          Tambahan Foto <HiStar className="h-2 w-2 text-red-600" />
-                        </Label>
-                        <span className="text-sm text-slate-500 py-1">
-                          Foto membantu kami menemukan staf dan alat terbaik untuk kebutuhan kamu sesegera mungkin
-                        </span>
-                      </div>
-
-                      <Input type="file" className="items-center justify-center flex" />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label className="flex text-text16_24">
-                        Lokasi Pengaduan <HiStar className="h-2 w-2 text-red-600" />
-                      </Label>
-                      <Input />
-                    </div>
-                  </div>
-                ) : (
-                  <div className="w-full space-y-5">
-                    <div className="flex items-center gap-3">
-                      <img src="/images/man.svg" className="w-[60px] h-[60px]" />
-                      <div>
-                        <h1 className="text-text16_24 font-semibold">Muhammad Aziz</h1>
-                        <p className="text-sm text-slate-500">Cibeunying Kaler</p>
-                      </div>
-                    </div>
-                    <img src="/images/foto_aduan.svg" className=" w-full  h-full max-h-[300px] " />
-                    <div>
-                      <h1 className="text-text16_24 font-semibold">Jalan Rusak</h1>
-                      <p className="text-sm text-slate-700">
-                        Setiap hari aku melewati jalan raya Cileunyi selalu macet karena adanya jalan rusak, mohon diperhatikan
-                        untuk pemerintah setempat semoga jalan cepat di perbaiki!!!
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {!isNextForm ? (
-                  <Button
-                    type="button"
-                    className="w-full max-w-[324px]"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setCurrentStep((prev) => prev + 1);
-                      setIsNextForm(true);
-                    }}
-                  >
-                    Lanjutkan
-                  </Button>
-                ) : (
-                  <div className="flex gap-6 w-full justify-end">
-                    <Button
-                      className="w-full max-w-[324px]"
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setCurrentStep((prev) => prev - 1);
-                        setIsNextForm(false);
-                      }}
-                    >
-                      Ubah Pengaduan
-                    </Button>
-                    <Button
-                      className="w-full max-w-[324px]"
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setIsState(true);
-                      }}
-                    >
-                      Kirim
-                    </Button>
-                  </div>
-                )}
-              </form>
-            </div>
-          </div>
         </div>
-        {isState && <PengaduanAlert isState={isState} handleState={handleIsState} />}
+
+        {isState && (
+          <PengaduanAlert isState={isState} handleState={handleIsState} />
+        )}
       </div>
     </AppLayout>
   );
