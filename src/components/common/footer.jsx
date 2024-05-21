@@ -26,10 +26,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-5">
-            <h1 className="font-bold text-text16_24">Kategori</h1>
+            <h1 className="font-bold text-text16_24">Lainnya</h1>
             <div>
-              <Link to={"/sosial-media"} className="text-text16_20 hover:underline hover:underline-offset-4">
-                Sosial
+              <Link to={"/faq"} className="text-text16_20 hover:underline hover:underline-offset-4">
+                FAQ
               </Link>
             </div>
           </div>

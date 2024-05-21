@@ -13,6 +13,8 @@ import DetailNewsPage from "@/pages/detail-news-page";
 import BantuanPage from "@/pages/bantuan-page";
 import TentangKamiPage from "@/pages/tentang-kami-page";
 import KontakKamiPage from "@/pages/contact-us";
+import NotifikasiPage from "@/pages/notifikasi";
+import FaqPage from "@/pages/faq-page";
 
 const AppRoute = () => {
   return (
@@ -28,9 +30,11 @@ const AppRoute = () => {
       <Route path='/profile' element={<ProfilePage />} />
       <Route path='/pengaduan-saya' element={<PengaduanSayaPage />} />
       <Route path='/berita/:id' element={<DetailNewsPage />} />
+      <Route path='/notifikasi' element={<NotifikasiPage />} />
       <Route path='/bantuan' element={<BantuanPage />} />
       <Route path='/tentang' element={<TentangKamiPage />} />
       <Route path='/kontak' element={<KontakKamiPage />} />
+      <Route path='/faq' element={<FaqPage />} />
     </Routes>
   );
 };

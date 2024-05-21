@@ -3,7 +3,7 @@ import AppLayout from "@/layouts/app-layout";
 const BantuanPage = () => {
     return (
         <AppLayout className={"px-4 md:px-5  z-30 max-w-[1200px] mx-auto "}>
-            <div className="pt-[64px] max-w-screen-lg mx-auto  flex items-center flex-col">
+            <div className="pt-[64px] max-w-screen-lg mx-auto flex items-center flex-col">
         <h1 className="text-4xl font-medium">Bantuan</h1>
         <div className="pt-[60px] space-y-10">
             <div className="pt-20px]">
@@ -22,15 +22,14 @@ const BantuanPage = () => {
                     </li>
                     <li>
                         Hubungi Dukungan: Jika Anda tidak dapat menemukan jawaban atas pertanyaan Anda di Pusat Bantuan atau FAQ,
-                        Anda dapat menghubungi tim Dukungan kami melalui email atau obrolan langsung.
+                        Anda dapat menghubungi Customer Service kami melalui email atau chat.
                     </li>
                 </ul>
         </div>
         <div className="pt-20px]">
             <h2 className="font-medium">Masih Ada Pertanyaan?</h2>
             <p className="pt-[24px]">
-                Jika Anda masih memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi tim Dukungan kami. Kami
-                senang membantu Anda dengan cara apa pun yang kami bisa.
+                Jika Anda masih memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi tim Customer Service kami.
             </p>
         </div>
         </div>

@@ -12,21 +12,21 @@ const daftarLayanan = [
     image: "/images/customer-service.svg",
     title: "Customer Service",
     desc: "Jika masyarakat ingin menyampaikan keluhannya, bisa menghubungi customer service kami",
-    link: "#",
+    link: "/customer-service",
   },
   {
     id: 2,
     image: "/images/pengaduan.svg",
     title: "Pengaduan",
     desc: "Kami menyediakan layanan pengaduan bagi seluruh masyarakat untuk menemukan solusi yang efektif dan efisien",
-    link: "#",
+    link: "/pengaduan",
   },
   {
     id: 3,
     image: "/images/berita.svg",
     title: "Berita",
     desc: "Platform kami juga memberi layanan berita terupdate utnuk setiap harinya untuk bagi setiap masyarakat",
-    link: "#",
+    link: "/berita",
   },
 ];
 

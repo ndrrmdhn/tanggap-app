@@ -8,10 +8,10 @@ export const UserProfile = () => {
   return (
     <div className="space-y-[24px]">
       <div className="flex items-center gap-x-[24px]">
-        <img src="/images/hana.png" className="w-[60px] h-[60px]" srcSet="" alt="" />
+        <img src="public\images\user.png" className="w-[60px] h-[60px]" srcSet="" alt="" /> 
         <div>
-          <h1 className="text-lg font-medium">Hana Mardini</h1>
-          <p className="text-sm">Perempuan</p>
+          <h1 className="text-lg font-medium">User</h1>
+          <p className="text-sm">Jenis Kelamin</p>
         </div>
       </div>
       <div className="border rounded-[20px] p-5 space-y-5">
