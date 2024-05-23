@@ -288,8 +288,7 @@ const PengaduanPage = () => {
                           <HiStar className="h-2 w-2 text-red-600" />
                         </Label>
                         <span className="text-sm text-slate-500 py-1">
-                          Foto membantu kami menemukan staf dan alat terbaik
-                          untuk kebutuhan kamu sesegera mungkin
+                        Gunakan foto untuk membuat pengaduan Anda agar lebih mudah dan cepat teratasi!
                         </span>
                         <Input
                           type="file"

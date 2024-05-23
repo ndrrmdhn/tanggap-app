@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 const SideAuth = () => {
   return (
     <div className="relative lg:col-span-2 overflow-hidden">
-      <div className="absolute inset-0 bg-[rgba(0,_163,_232,_0.55)] opacity-50"></div>
-      <img src="/images/masyarakat.svg" alt="Image" className="h-full object-cover " />
+      <div className="absolute inset-0 bg-[rgba(0,_163,_232,_0.55)] opacity-0"></div>
+      <img src="public\images\site.png" alt="Image" className="h-full object-cover " />
     </div>
   );
 };

@@ -76,13 +76,13 @@ const KontakKamiPage = () => {
                                 </div>
                                 <div className="ml-4 mb-4">
                                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                                    Contact
+                                    Kontak
                                     </h3>
                                     <p className="text-gray-600 dark:text-slate-400">
-                                    Mobile: +1 (123) 456-7890
+                                    Telepon: +62 (123) 456-7890
                                     </p>
                                     <p className="text-gray-600 dark:text-slate-400">
-                                    Mail: tanggapkeun@gmail.com
+                                    Email: tanggapkeun@gmail.com
                                     </p>
                                 </div>
                                 </li>
@@ -106,7 +106,7 @@ const KontakKamiPage = () => {
                                 </div>
                                 <div className="ml-4 mb-4">
                                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                                    Working hours
+                                    Jam Kerja
                                     </h3>
                                     <p className="text-gray-600 dark:text-slate-400">
                                     Senin - Jumat: 08:00 - 17:00
