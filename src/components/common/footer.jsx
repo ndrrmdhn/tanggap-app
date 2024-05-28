@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="space-y-5">
-            <h1 className="font-bold text-text16_24">Lainnya</h1>
+            <h1 className="font-bold text-text16_24">Informasi</h1>
             <div>
               <Link to={"/faq"} className="text-text16_20 hover:underline hover:underline-offset-4">
                 FAQ

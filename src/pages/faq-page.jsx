@@ -17,7 +17,7 @@ const FaqPage = () => {
       <div className="py-5">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-            <span> How does the billing work?</span>
+            <span> Bagaimana cara membuat akun di Tanggap?</span>
             <span className="transition group-open:rotate-180">
               <svg
                 fill="none"
@@ -35,17 +35,16 @@ const FaqPage = () => {
             </span>
           </summary>
           <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-            Springerdata offers a variety of billing options, including monthly
-            and annual subscription plans, as well as pay-as-you-go pricing for
-            certain services. Payment is typically made through a credit card or
-            other secure online payment method.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Amet molestiae aliquid eligendi! 
+            Repudiandae recusandae beatae accusamus ratione quibusdam quas. Consequatur.
           </p>
         </details>
       </div>
       <div className="py-5">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-            <span> Can I get a refund for my subscription?</span>
+            <span> Bagaimana cara membuat laporan baru?</span>
             <span className="transition group-open:rotate-180">
               <svg
                 fill="none"
@@ -63,18 +62,16 @@ const FaqPage = () => {
             </span>
           </summary>
           <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-            We offer a 30-day money-back guarantee for most of its subscription
-            plans. If you are not satisfied with your subscription within the
-            first 30 days, you can request a full refund. Refunds for
-            subscriptions that have been active for longer than 30 days may be
-            considered on a case-by-case basis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officia eius alias iste, 
+            autem accusantium praesentium molestiae officiis voluptatibus, 
+            necessitatibus voluptatem! Quas excepturi sed eveniet?
           </p>
         </details>
       </div>
       <div className="py-5">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-            <span> How do I cancel my subscription?</span>
+            <span> Bagaimana cara melacak status laporan?</span>
             <span className="transition group-open:rotate-180">
               <svg
                 fill="none"
@@ -92,16 +89,16 @@ const FaqPage = () => {
             </span>
           </summary>
           <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-            To cancel your subscription, you can log in to your account and
-            navigate to the subscription management page. From there, you should
-            be able to cancel your subscription and stop future billing.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Eveniet vero, rem repellat eligendi ratione voluptates minus itaque quod laborum eum sapiente, 
+            doloribus velit illum laudantium!
           </p>
         </details>
       </div>
       <div className="py-5">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-            <span> Is there a free trial?</span>
+            <span> Bagaimana cara memastikan bahwa pengaduan saya ditindaklanjuti?</span>
             <span className="transition group-open:rotate-180">
               <svg
                 fill="none"
@@ -119,16 +116,16 @@ const FaqPage = () => {
             </span>
           </summary>
           <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-            We offer a free trial of our software for a limited time. During the
-            trial period, you will have access to a limited set of features and
-            functionality, but you will not be charged.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Labore, nemo ipsum. Architecto tenetur cupiditate saepe odio iste repudiandae a deleniti natus ab voluptatibus, 
+            voluptas ut sequi veniam enim. Nisi, error!
           </p>
         </details>
       </div>
       <div className="py-5">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-            <span> How do I contact support?</span>
+            <span> Apa yang bisa saya lakukan jika saya tidak puas dengan tanggapan yang saya terima?</span>
             <span className="transition group-open:rotate-180">
               <svg
                 fill="none"
@@ -146,16 +143,15 @@ const FaqPage = () => {
             </span>
           </summary>
           <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-            If you need help with our platform or have any other questions, you
-            can contact the company's support team by submitting a support
-            request through the website or by emailing support@ourwebsite.com.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+            Natus dignissimos voluptate, voluptates quis sit quae.
           </p>
         </details>
       </div>
       <div className="py-5">
         <details className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between font-medium">
-            <span> Do you offer any discounts or promotions?</span>
+            <span> Jenis pengaduan apa saja yang bisa saya laporkan?</span>
             <span className="transition group-open:rotate-180">
               <svg
                 fill="none"
@@ -173,9 +169,8 @@ const FaqPage = () => {
             </span>
           </summary>
           <p className="group-open:animate-fadeIn mt-3 text-neutral-600">
-            We may offer discounts or promotions from time to time. To stay
-            up-to-date on the latest deals and special offers, you can sign up
-            for the company's newsletter or follow it on social media.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Quaerat aut pariatur quasi aliquam porro unde molestiae vitae odit quibusdam. Nam?
           </p>
         </details>
       </div>

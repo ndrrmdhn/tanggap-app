@@ -45,7 +45,7 @@ const NavlinkItem = ({ to, label }) => {
 const Navbar = ({ className }) => {
   const navitem = [
     {
-      to: "/",
+      to: "/home",
       label: "Home",
     },
     {
@@ -67,7 +67,7 @@ const Navbar = ({ className }) => {
       <header className=" max-w-screen-xl  justify-between mx-auto w-full flex h-16 items-center gap-4 px-4 md:px-6">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-14">
           <Link
-            to={"/"}
+            to={"/home"}
             className="flex items-center gap-2  font-semibold md:text-xl"
           >
             <img

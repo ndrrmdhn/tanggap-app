@@ -14,15 +14,16 @@ const BantuanPage = () => {
                 </p>
                 <ul className="list-disc pt-[16px]">
                     <li>
-                        Pusat Bantuan: Kunjungi Pusat Bantuan kami untuk menemukan artikel dan tutorial yang membahas berbagai topik,
-                        termasuk cara menggunakan platform kami, menyelesaikan masalah umum, dan banyak lagi.
+                        Kontak Kami: Halaman ini menyediakan berbagai informasi untuk membantu Anda terhubung dengan kami dan mendapatkan bantuan. 
+                        Anda dapat menemukan informasi tentang cara menghubungi kami melalui telepon, email, atau formulir kontak online. 
+                        Kami juga menyediakan informasi tentang lokasi kantor kami dan jam buka.
                     </li>
                     <li>
                         FAQ: Lihat daftar Pertanyaan Umum (FAQ) kami untuk jawaban cepat atas pertanyaan umum tentang layanan kami.
                     </li>
                     <li>
-                        Hubungi Dukungan: Jika Anda tidak dapat menemukan jawaban atas pertanyaan Anda di Pusat Bantuan atau FAQ,
-                        Anda dapat menghubungi Customer Service kami melalui email atau chat.
+                        Customer Service: Jika Anda tidak dapat menemukan jawaban atas pertanyaan Anda di FAQ,
+                        Anda dapat menghubungi kami melalui email atau chat.
                     </li>
                 </ul>
         </div>
