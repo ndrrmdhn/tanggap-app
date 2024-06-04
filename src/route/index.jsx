@@ -21,10 +21,10 @@ const AppRoute = () => {
   return (
     <Routes>
       <Route path='*' element={<NotFoundPage />} />
-      <Route path='/' element={<OnboardingPage />} />
+      {/* <Route path='/' element={<OnboardingPage />} /> */}
+      <Route path='/' element={<HomePage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/register' element={<RegisterPage />} />
-      <Route path='/home' element={<HomePage />} />
       <Route path='/pengaduan' element={<PengaduanPage />} />
       <Route path='/berita' element={<NewsPage />} />
       <Route path='/customer-service' element={<CustomerServicePage />} />

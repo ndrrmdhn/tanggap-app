@@ -42,7 +42,7 @@ const LoginForm = () => {
               <Input id="password" type="password" placeholder="Masukan Kata Sandi" required />
             </div>
             <div className="w-full space-y-3">
-              <Button onClick={() => navigate("/home")} className="w-full  text-[16px] leading-[24px]  ">
+              <Button onClick={() => navigate("/")} className="w-full  text-[16px] leading-[24px]  ">
                 Masuk
               </Button>
 
