@@ -1,8 +1,12 @@
-# React + Vite
+# Tanggap App (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Here's a link to the front-end of Tanggap app on Vercel (just the visual part, not yet the data processing side). While it works perfectly on local, it's not yet publicly available.  However, by showing you the front-end, I can still give you a good idea of how the app will look and function.
 
-Currently, two official plugins are available:
+[Tanggap](www.tanggap.site)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Other repositories from Tanggap App:
+
+- [tanggap-public](https://github.com/ndrrmdhn/tanggap-public)
+- [tanggap-app](https://github.com/ndrrmdhn/tanggap-app)
+- [tanggap-backend](https://github.com/ndrrmdhn/tanggap-app-backend)
+- [admintanggap](https://github.com/ndrrmdhn/admintanggap)
