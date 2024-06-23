@@ -1,10 +1,10 @@
 # Tanggap App (React + Vite)
 
-Here's a [link](www.tanggap.site) to the front-end of Tanggap app on Vercel (just the visual part, not yet the data processing side). <br>
-While it works perfectly on local, it's not yet publicly available.<br> 
-However, by showing you the front-end, I can still give you a good idea of how the app will look and function.
+Here's a [link](www.tanggap.site) to the front-end of Tanggap app on Vercel. <br>
 
-The code for the Tanggap App frontend, which connects with the backend, can be found in the following repository: [tanggap-public](https://github.com/ndrrmdhn/tanggap-public)
+Click the following link to access our website: (http://202.10.41.84/) <br>
+
+Front-end source code which connected with the backend, can be found in the following repository: [tanggap-public](https://github.com/ndrrmdhn/tanggap-public)
 
 Other repositories from Tanggap App:
 
